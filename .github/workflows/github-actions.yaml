@@ -1,5 +1,7 @@
-name: Build Python App
+name: Build and Greet using Environment Variables
 on: push
+env:
+  Global_Message: 'Global message MGT44'  
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -7,12 +9,14 @@ jobs:
     - uses: actions/setup-python@v4
       with:
         python-version: '3.9'
-    - run: python --version
+    - run: python -c "print(f'{env.Global_Message}')"
   greet:
     runs-on: ubuntu-latest
+    env:
+      Greeting_Message: 'Greeting message MGT3'  
     steps:
     - uses: actions/setup-python@v4
       with:
         python-version: '3.9'
-    - run: python -c "print('Hello - MGT22!')"
+    - run: python -c "print(f'{env.Greeting_Message}')"
 
