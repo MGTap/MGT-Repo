@@ -3,7 +3,6 @@ on: push
 jobs:
   build:
     runs-on: ubuntu-latest
-    steps:
       steps:
         - uses: actions/setup-python@v4
           with:
